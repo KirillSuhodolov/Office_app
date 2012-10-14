@@ -1,0 +1,38 @@
+<%= form_for @repot, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :eploye_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :eploye_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :subdivision_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :subdivision_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :organization_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :organization_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :hours, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :hours, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                repots_path, :class => 'btn' %>
+  </div>
+<% end %>
