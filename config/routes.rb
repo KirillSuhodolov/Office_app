@@ -1,4 +1,6 @@
 OfficeApp::Application.routes.draw do
+  resources :employes
+
   resources :users
 
   resources :repots
