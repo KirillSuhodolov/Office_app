@@ -1,20 +1,8 @@
 <%= form_for @repot, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :eploye_id, :class => 'control-label' %>
+    <%= f.label :report_name, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :eploye_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :subdivision_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :subdivision_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :organization_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :organization_id, :class => 'number_field' %>
+      <%= f.text_field :report_name, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
@@ -26,7 +14,7 @@
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :description, :class => 'text_field' %>
+      <%= f.text_area :description, :class => 'text_area', rows: 6 %>
     </div>
   </div>
 

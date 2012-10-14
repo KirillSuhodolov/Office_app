@@ -1,10 +1,15 @@
 OfficeApp::Application.routes.draw do
-  resources :employes
+  resources :organizations
 
-  resources :users
+  resources :subdivisions
+
+  resources :managers
+
+  resources :employes
 
   resources :repots
 
+  root :to => "repots#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

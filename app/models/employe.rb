@@ -1,3 +1,3 @@
 class Employe < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :employe_name
 end

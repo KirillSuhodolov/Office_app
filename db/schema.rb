@@ -11,15 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121014153409) do
+ActiveRecord::Schema.define(:version => 20121014161442) do
 
   create_table "employes", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "employe_name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "managers", :force => true do |t|
+    t.string   "manager_name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "organization_name"
+    t.string   "description"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "repots", :force => true do |t|
+    t.string   "report_name"
     t.integer  "eploye_id"
     t.integer  "subdivision_id"
     t.integer  "organization_id"
@@ -27,6 +41,13 @@ ActiveRecord::Schema.define(:version => 20121014153409) do
     t.string   "description"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "subdivisions", :force => true do |t|
+    t.string   "subdivision_name"
+    t.string   "description"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end
