@@ -48,10 +48,9 @@
           <div class="container nav-collapse">
             <ul class="nav">
               <li><%= link_to "Repots", repots_path  %></li>
-              <li><%= link_to "Employes", employes_path  %></li>
-              <li><%= link_to "Managers", managers_path  %></li>
               <li><%= link_to "Subdivisions", subdivisions_path  %></li>
               <li><%= link_to "Organizations", organizations_path  %></li>
+              <li><%= link_to "Employes", users_path  %></li>              
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -74,8 +73,9 @@
                         <li>Logged in as <strong><%= current_user.email %></strong>.</li>
                         <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
                         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                        <li><%= link_to "Sign up(create new employe)", new_user_registration_path %></li>
                       <% else %>
-                        <li><%= link_to "Sign up", new_user_registration_path %></li>
+                        <li> Please sign in </li>
                         <li><%= link_to "Login", new_user_session_path %></li>
                       <% end %>
                     

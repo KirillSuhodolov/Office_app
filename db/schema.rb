@@ -13,18 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20121014190151) do
 
-  create_table "employes", :force => true do |t|
-    t.string   "employe_name"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  create_table "managers", :force => true do |t|
-    t.string   "manager_name"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "organizations", :force => true do |t|
     t.string   "organization_name"
     t.string   "description"
@@ -34,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20121014190151) do
 
   create_table "repots", :force => true do |t|
     t.string   "report_name"
-    t.integer  "eploye_id"
+    t.integer  "user_id"
     t.integer  "subdivision_id"
     t.integer  "organization_id"
     t.integer  "hours"
@@ -52,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20121014190151) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
+    t.string   "role"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false

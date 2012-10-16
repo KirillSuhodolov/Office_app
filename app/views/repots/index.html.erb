@@ -19,7 +19,7 @@
     <% @repots.each do |repot| %>
       <tr>
         <td><%= link_to repot.id, repot_path(repot) %></td>
-        <td><%= repot.eploye_id %></td>
+        <td><%= repot.user_id %></td>
         <td><%= repot.subdivision_id %></td>
         <td><%= repot.organization_id %></td>
         <td><%= repot.hours %></td>

@@ -1,15 +1,11 @@
 OfficeApp::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :path_prefix => 'my'
 
   resources :users
 
   resources :organizations
 
   resources :subdivisions
-
-  resources :managers
-
-  resources :employes
 
   resources :repots
 
