@@ -1,22 +1,66 @@
-<%= form_for(@user) do |f| %>
-   
-   <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-   </div>   
+<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
 
-   <div class="field">  
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password %>
-   </div>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
 
-   <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
-   </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :password, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :password_confirmation, :class => 'text_field' %>
+    </div>
+  </div>
 
-   <div class="actions">
-      <%= f.submit %>
-   </div>
+  <% if current_user.role == "admin" %>
+    <div class="control-group">
+      <%= f.label :chose_user_role, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.collection_select :role, User::ROLES1, :to_s, :humanize %>
+      </div>
+    </div>
+  <% end %>
+  <% if current_user.role == "manager" %>
+    <div class="control-group">
+      <%= f.label :chose_user_role, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.collection_select :role, User::ROLES2, :to_s, :humanize %>
+      </div>
+    </div>
+  <% end %>
 
+
+  <div class="control-group">
+    <%= f.label :subdivision_name, :class => 'control-label' %>
+    <div class="controls">
+      <%#= f.text_field :subdivision_id, :class => 'text_field' %>
+      <%= f.collection_select :subdivision_id, Subdivision.order(:subdivision_name), :id, :subdivision_name %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :organiztion_name, :class => 'control-label' %>
+    <div class="controls">
+      <%#= f.text_field :organization_id, :class => 'text_field' %>
+      <%= f.collection_select :organization_id, Organization.order(:organization_name), :id, :organization_name %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                subdivisions_path, :class => 'btn' %>
+  </div>
 <% end %>

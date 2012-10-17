@@ -47,10 +47,18 @@
           <a class="brand" href="#">OfficeApp</a>     
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Repots", repots_path  %></li>
-              <li><%= link_to "Subdivisions", subdivisions_path  %></li>
-              <li><%= link_to "Organizations", organizations_path  %></li>
-              <li><%= link_to "Employes", users_path  %></li>              
+              <% if can? :read, Report %>
+                <li><%= link_to "Reports", reports_path  %></li>
+              <% end %>
+              <% if can? :read, Subdivision %>
+                <li><%= link_to "Subdivisions", subdivisions_path  %></li>
+              <% end %>  
+              <% if can? :read, Organization %>  
+                <li><%= link_to "Organizations", organizations_path  %></li>
+              <% end %>    
+              <% if can? :read, User %>  
+                <li><%= link_to "Employes", users_path  %></li>     
+              <% end %>     
             </ul>
           </div><!--/.nav-collapse -->
         </div>

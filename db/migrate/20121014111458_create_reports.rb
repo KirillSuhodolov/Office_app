@@ -1,10 +1,8 @@
-class CreateRepots < ActiveRecord::Migration
+class CreateReports < ActiveRecord::Migration
   def change
-    create_table :repots do |t|
+    create_table :reports do |t|
       t.string  :report_name
       t.integer :user_id
-      t.integer :subdivision_id
-      t.integer :organization_id
       t.integer :hours
       t.string :description
 

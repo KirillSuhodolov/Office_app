@@ -3,17 +3,26 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest User
-    
-    if user.role? == :manager
-      can :manage, Subdivision
-      can :read, Repot
-      can :manage, User #do |employe|
-       # employe.try(:user) == user || user.role?(:manager)  
-      #end
-    else
-      can :manage, Repot
-      can :manage, User
-    end
+
+
+  if user.role == "admin"
+    can [:create, :read, :update], Organization
+    can [:create, :read, :destroy], User
+    can [:read], Report
+    can [:read], Subdivision
+  end
+
+  if user.role == "manager"
+    can [:create, :read, :update], Subdivision
+    can :read, Report
+    can [:create, :read, :update], User    
+  end
+
+  if user.role == "employe"
+    can :manage, Report
+   # can :read, User 
+  end
+
   end
 end
 

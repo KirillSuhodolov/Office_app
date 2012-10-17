@@ -5,8 +5,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:subdivision_name) %></th>
+      <th><%= model_class.human_attribute_name(:organization_name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -15,24 +15,34 @@
   <tbody>
     <% @subdivisions.each do |subdivision| %>
       <tr>
-        <td><%= link_to subdivision.id, subdivision_path(subdivision) %></td>
         <td><%= subdivision.subdivision_name %></td>
+        <td><%= subdivision.organization.organization_name %></td>        
         <td><%= subdivision.description %></td>
         <td><%=l subdivision.created_at %></td>
         <td>
+        <% if can? :read, Subdivision %>
+          <%= link_to t(subdivision.id, :default => t("helpers.links.show")), 
+                      subdivision_path(subdivision), :class => 'btn btn-mini' %>
+        <% end %>          
+        <% if can? :update, Subdivision %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_subdivision_path(subdivision), :class => 'btn btn-mini' %>
+        <% end %>
+        <% if can? :destroy, Subdivision %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       subdivision_path(subdivision),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
+        <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_subdivision_path,
-            :class => 'btn btn-primary' %>
+<% if can? :create, Subdivision %>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+              new_subdivision_path,
+              :class => 'btn btn-primary' %>
+<% end %>

@@ -20,20 +20,19 @@ ActiveRecord::Schema.define(:version => 20121014190151) do
     t.datetime "updated_at",        :null => false
   end
 
-  create_table "repots", :force => true do |t|
+  create_table "reports", :force => true do |t|
     t.string   "report_name"
     t.integer  "user_id"
-    t.integer  "subdivision_id"
-    t.integer  "organization_id"
     t.integer  "hours"
     t.string   "description"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "subdivisions", :force => true do |t|
     t.string   "subdivision_name"
     t.string   "description"
+    t.integer  "organization_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
@@ -41,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20121014190151) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "role"
+    t.string   "subdivision_id"
+    t.string   "organization_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false

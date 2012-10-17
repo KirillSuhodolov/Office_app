@@ -1,0 +1,17 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<table class="pretty">
+  <tr>
+    <th><%= sortable "subdivision_name" %></th>
+    <th><%= sortable "description" %></th>
+  </tr>
+  <% for subdivision in @subdivision %>
+    <tr>
+      <td><%= subdivision.subdivision_name %></td>
+      <td><%= subdivision.description %></td>
+      </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @subdivisions %>

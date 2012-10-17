@@ -7,9 +7,9 @@ OfficeApp::Application.routes.draw do
 
   resources :subdivisions
 
-  resources :repots
+  resources :reports
 
-  root :to => "repots#index"
+  root :to => "reports#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  #before_create :create_role
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -8,17 +8,18 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :name, :role
+  attr_accessible :name, :role, :organization_id, :subdivision_id, :id
 
 
-  has_many :repots
+  has_many :reports
   belongs_to :organization
   belongs_to :subdivision
 
-  ROLES = %w[manager employe]
+ ROLES1 = %w[manager employe]
+ ROLES2 = %w[employe]
 
-  def role_symbols
-    [role.to_sym]
-  end
+  #def role_symbols
+  #  [role.to_sym]
+  #end
 
 end
