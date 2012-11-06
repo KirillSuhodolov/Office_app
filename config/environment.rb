@@ -7,5 +7,5 @@ require File.expand_path('../application', __FILE__)
 #OfficeApp::Application.initialize!
 
 ActiveSupport::Deprecation.silence do
-  Selfcare::Application.initialize!
+  OfficeApp::Application.initialize!
 end
