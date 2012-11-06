@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(:version => 20121014190151) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "role"
-    t.string   "subdivision_id"
-    t.string   "organization_id"
+    t.integer  "subdivision_id"
+    t.integer  "organization_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false
