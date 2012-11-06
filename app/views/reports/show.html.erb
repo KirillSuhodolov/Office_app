@@ -4,9 +4,8 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @report.user_id %></dd>
-
+  <dt><strong>Employe:</strong></dt>
+  <dd><%= @report.user.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:hours) %>:</strong></dt>
   <dd><%= @report.hours %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>

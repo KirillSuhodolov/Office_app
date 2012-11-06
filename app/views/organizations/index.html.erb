@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:organization_name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -15,11 +14,14 @@
   <tbody>
     <% @organizations.each do |organization| %>
       <tr>
-        <td><%= link_to organization.id, organization_path(organization) %></td>
         <td><%= organization.organization_name %></td>
         <td><%= organization.description %></td>
         <td><%=l organization.created_at %></td>
         <td>
+        <% if can? :read, Subdivision %>
+          <%= link_to t(organization.id, :default => t("helpers.links.show")), 
+                      organization_path(organization), :class => 'btn btn-mini' %>
+        <% end %>                    
           <% if can? :update, Organization %>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
                         edit_organization_path(organization), :class => 'btn btn-mini' %>

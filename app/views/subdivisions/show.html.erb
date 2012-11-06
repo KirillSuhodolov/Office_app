@@ -8,6 +8,8 @@
   <dd><%= @subdivision.subdivision_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @subdivision.description %></dd>
+  <dt><strong>Employes:</strong></dt>
+  <dd><% @subdivision.users.each do |user| %><%= link_to user.name, user_path(user) %>&nbsp&nbsp<% end %></dd>
 </dl>
 
 <div class="form-actions">

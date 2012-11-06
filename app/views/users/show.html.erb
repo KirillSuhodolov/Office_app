@@ -14,7 +14,8 @@
   <dd><%= @user.organization.organization_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:subdivision) %>:</strong></dt>
   <dd><%= @user.subdivision.subdivision_name %></dd>
-
+  <dt><strong>Repots:</strong></dt>
+  <dd><% @user.reports.each do |report| %><%= link_to report.report_name, report_path(report) %>&nbsp&nbsp<% end %></dd>
 </dl>
 
 <div class="form-actions">

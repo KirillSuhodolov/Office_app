@@ -3,9 +3,9 @@ class ReportsController < InheritedResources::Base
 
   def index
     if current_user.role == "employe"
-      @reports = @current_user.reports.order("report_name").page(params[:page]).per_page(8)     
+      @reports = @current_user.reports.order("report_name").page(params[:page]).per_page(10)     
       else
-        @reports = Report.order("report_name").page(params[:page]).per_page(8)     
+        @reports = Report.order("report_name").page(params[:page]).per_page(10)     
     end  
   end
 
