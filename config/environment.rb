@@ -1,5 +1,11 @@
 # Load the rails application
 require File.expand_path('../application', __FILE__)
-ActiveSupport::Deprecation.silenced = true 
+#require 'rake'
+
+
 # Initialize the rails application
-OfficeApp::Application.initialize!
+#OfficeApp::Application.initialize!
+
+ActiveSupport::Deprecation.silence do
+  Selfcare::Application.initialize!
+end
