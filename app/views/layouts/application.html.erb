@@ -35,44 +35,54 @@
     <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">OfficeApp</a>     
-          <div class="container nav-collapse">
-            <ul class="nav">
-              <% if can? :read, Report %>
-                <li><%= link_to "Reports", reports_path  %></li>
-              <% end %>
-              <% if can? :read, Subdivision %>
-                <li><%= link_to "Subdivisions", subdivisions_path  %></li>
-              <% end %>  
-              <% if can? :read, Organization %>  
-                <li><%= link_to "Organizations", organizations_path  %></li>
-              <% end %>    
-              <% if can? :read, User %>  
-                <li><%= link_to "Employes", users_path  %></li>     
-              <% end %>     
-            </ul>
-          </div><!--/.nav-collapse -->
+    <div class="navbar-opener" >
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">OfficeApp</a>    
+            <a class="brand" href="specification">Specification</a>  
+            <div class="container nav-collapse">
+              <ul class="nav">
+                <% if can? :read, Report %>
+                  <li><%= link_to "Reports", reports_path  %></li>
+                <% end %>
+                <% if can? :read, Subdivision %>
+                  <li><%= link_to "Subdivisions", subdivisions_path  %></li>
+                <% end %>  
+                <% if can? :read, Organization %>  
+                  <li><%= link_to "Organizations", organizations_path  %></li>
+                <% end %>    
+                <% if can? :read, User %>  
+                  <li><%= link_to "Employes", users_path  %></li>     
+                <% end %>     
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
     </div>
-
     <div class="container">
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == :notice ? "success" : "error" %>  ">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+          <%= msg %>
+        </div>
+      <% end %>
+
       <div class="content">
         <div class="row">
            <div class="span9">
-              <%= yield %>
+            <div class="well">
+                <%= yield %>
             </div>
+               </div>
             <div class="span3">
-              <div class="well sidebar-nav">
+              <div class="well sidebar-nav" >
                 <h3>Sidebar</h3>
                 <ul class="nav nav-list">
                   <li class="nav-header">Accaunt control panel</li>
@@ -94,7 +104,7 @@
       </div><!--/content-->
 
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>Kirill Suhodolov 2012. You can visit me in <a href="https://github.com/KirillSuhodolov">Github</a>  and <a href="http://vk.com/id10108581">Vk</a> </p>
       </footer>
 
     </div> <!-- /container -->

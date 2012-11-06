@@ -1,23 +1,8 @@
-<%= form_for @report, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :report_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :report_name, :class => 'text_field' %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :hours, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :hours, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, :class => 'text_area', rows: 6 %>
-    </div>
-  </div>
+<%= simple_form_for(@report, :html => { :class => 'form-horizontal' }) do |f| %>
+  
+  <%= f.input :report_name %>
+  <%= f.input :hours %>  
+  <%= f.input :description, :as => :text %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

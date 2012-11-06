@@ -10,6 +10,7 @@ OfficeApp::Application.routes.draw do
   resources :reports
 
   root :to => "reports#index"
+  resources :specification
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

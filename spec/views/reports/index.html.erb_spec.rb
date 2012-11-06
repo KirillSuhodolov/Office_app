@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-describe "repots/index" do
+describe "reports/index" do
   before(:each) do
-    assign(:repots, [
-      stub_model(Repot,
+    assign(:reports, [
+      stub_model(Report,
         :eploye_id => 1,
         :subdivision_id => 2,
         :organization_id => 3,
         :hours => 4,
         :description => "Description"
       ),
-      stub_model(Repot,
+      stub_model(Report,
         :eploye_id => 1,
         :subdivision_id => 2,
         :organization_id => 3,
@@ -20,7 +20,7 @@ describe "repots/index" do
     ])
   end
 
-  it "renders a list of repots" do
+  it "renders a list of reports" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2

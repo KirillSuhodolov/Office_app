@@ -1,6 +1,15 @@
 class ReportsController < InheritedResources::Base
 	load_and_authorize_resource
 
+  def index
+    if current_user.role == "employe"
+      @reports = @current_user.reports.order("report_name").page(params[:page]).per_page(8)     
+      else
+        @reports = Report.order("report_name").page(params[:page]).per_page(8)     
+    end  
+  end
+
+
   def create
     @report = Report.new(params[:report],
     										 :user_id => current_user.id)

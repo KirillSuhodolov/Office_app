@@ -36,6 +36,7 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @collection, :renderer => BootstrapPagination::Rails %>
 
 <% if can? :createe, Organization %>
   <%= link_to t('.new', :default => t("helpers.links.new")),

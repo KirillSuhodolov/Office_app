@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "repots/show" do
+describe "reports/show" do
   before(:each) do
-    @repot = assign(:repot, stub_model(Repot,
+    @report = assign(:report, stub_model(Report,
       :eploye_id => 1,
       :subdivision_id => 2,
       :organization_id => 3,

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "repots/new" do
+describe "reports/new" do
   before(:each) do
-    assign(:repot, stub_model(Repot,
+    assign(:report, stub_model(Report,
       :eploye_id => 1,
       :subdivision_id => 1,
       :organization_id => 1,
@@ -11,16 +11,16 @@ describe "repots/new" do
     ).as_new_record)
   end
 
-  it "renders new repot form" do
+  it "renders new report form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => repots_path, :method => "post" do
-      assert_select "input#repot_eploye_id", :name => "repot[eploye_id]"
-      assert_select "input#repot_subdivision_id", :name => "repot[subdivision_id]"
-      assert_select "input#repot_organization_id", :name => "repot[organization_id]"
-      assert_select "input#repot_hours", :name => "repot[hours]"
-      assert_select "input#repot_description", :name => "repot[description]"
+    assert_select "form", :action => reports_path, :method => "post" do
+      assert_select "input#report_eploye_id", :name => "report[eploye_id]"
+      assert_select "input#report_subdivision_id", :name => "report[subdivision_id]"
+      assert_select "input#report_organization_id", :name => "report[organization_id]"
+      assert_select "input#report_hours", :name => "report[hours]"
+      assert_select "input#report_description", :name => "report[description]"
     end
   end
 end

@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 
   load_and_authorize_resource
 
+  def index
+    @users = User.order("name").page(params[:page]).per_page(2)
+  end
+
 	def create
     @user = User.new(params[:user])
 
