@@ -4,8 +4,8 @@ require File.expand_path('../application', __FILE__)
 
 
 # Initialize the rails application
-#OfficeApp::Application.initialize!
+OfficeApp::Application.initialize!
 
-ActiveSupport::Deprecation.silence do
-  OfficeApp::Application.initialize!
-end
+#ActiveSupport::Deprecation.silence do
+  #OfficeApp::Application.initialize!
+#end
