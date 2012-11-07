@@ -45,12 +45,12 @@ test:
   database: officeapp_test
   pool: 5
   username: postgres
-  password: 
+  password: 123qwe
 
 production:
   adapter: postgresql
   encoding: unicode
   database: officeapp_production
   pool: 5
-  username: root
-  password: 
+  username: postgres
+  password: 123qwe
